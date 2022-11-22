@@ -10,10 +10,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.*;
+
+import static audio.AudioIO.obtainAudioInput;
 
 
 public class Main extends Application {
@@ -34,9 +33,9 @@ public class Main extends Application {
     }
 
     private Node createToolbar() {
-        Button button = new Button("appuyez !");
-        ToolBar tb = new ToolBar(button, new Label("ceci est un label"), new Separator());
-        button.setOnAction(event -> System.out.println("appui!"));
+        Button button = new Button("Hello World !");
+        ToolBar tb = new ToolBar(button, new Label("Label"), new Separator());
+        button.setOnAction(event -> System.out.println("Hello World !"));
         ComboBox<String> cb = new ComboBox<>();
         cb.getItems().addAll("Item 1", "Item 2", "Item 3");
         tb.getItems().add(cb);
@@ -48,7 +47,13 @@ public class Main extends Application {
         statusbar.getChildren().addAll(new Label("Name:"), new TextField(" "));
         return statusbar;
     }
+    /* private Node createDblevel(){
+        ToolBar Dblevel = new ToolBar(button, new Label("Label"), new Separator());
 
+    }
+*\
+
+     */
     private Node createMainContent() {
         Group g = new Group();
         // ici en utilisant g.getChildren().add(...) vous pouvez ajouter tout  ́el ́ement graphique souhait ́e de type Node
@@ -68,5 +73,5 @@ public class Main extends Application {
         line.open();
         line.start();
     }
-    java audio.AudioSignal
+
 }
